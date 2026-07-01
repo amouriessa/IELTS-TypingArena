@@ -1,0 +1,938 @@
+[
+  {
+    "word": "ephemeral",
+    "ipa": "/ɪˈfem.ər.əl/",
+    "type": "adjective",
+    "definition": "lasting for a very short time",
+    "example": "Fame in the age of social media is often ephemeral, lasting only a few days.",
+    "band": "8.0+",
+    "category": "General Academic"
+  },
+  {
+    "word": "ubiquitous",
+    "ipa": "/juːˈbɪk.wɪ.təs/",
+    "type": "adjective",
+    "definition": "present, appearing, or found everywhere",
+    "example": "Mobile phones have become ubiquitous in modern society, transforming communication.",
+    "band": "8.0+",
+    "category": "Technology"
+  },
+  {
+    "word": "pragmatic",
+    "ipa": "/præɡˈmæt.ɪk/",
+    "type": "adjective",
+    "definition": "dealing with things realistically based on practical considerations",
+    "example": "The government took a pragmatic approach to economic reform, balancing growth with inflation.",
+    "band": "7.0",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "corroborate",
+    "ipa": "/kəˈrɒb.ə.reɪt/",
+    "type": "verb",
+    "definition": "confirm or give support to (a statement, theory, or finding)",
+    "example": "Several independent studies corroborate the theory that carbon emissions drive warming.",
+    "band": "8.0+",
+    "category": "Law & Society"
+  },
+  {
+    "word": "delineate",
+    "ipa": "/dɪˈlɪn.i.eɪt/",
+    "type": "verb",
+    "definition": "describe or portray something precisely",
+    "example": "The contract clearly delineates the duties of both employer and employee.",
+    "band": "8.0+",
+    "category": "Work & Business"
+  },
+  {
+    "word": "juxtapose",
+    "ipa": "/ˌdʒʌk.stəˈpəʊz/",
+    "type": "verb",
+    "definition": "place or deal with close together for contrasting effect",
+    "example": "The exhibition juxtaposes modern abstract art with classical sculpture.",
+    "band": "8.0+",
+    "category": "Arts & Culture"
+  },
+  {
+    "word": "plausible",
+    "ipa": "/ˈplɔː.zə.bəl/",
+    "type": "adjective",
+    "definition": "seeming reasonable or probable",
+    "example": "The scientist provided a plausible explanation for the sudden shift in temperature.",
+    "band": "7.0",
+    "category": "Science"
+  },
+  {
+    "word": "scrutinize",
+    "ipa": "/ˈskruː.tɪ.naɪz/",
+    "type": "verb",
+    "definition": "examine or inspect closely and thoroughly",
+    "example": "Auditors will scrutinize the company's financial records for any discrepancies.",
+    "band": "7.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "advocate",
+    "ipa": "/ˈæd.və.keɪt/",
+    "type": "verb",
+    "definition": "publicly recommend or support a particular cause or policy",
+    "example": "Environmental groups advocate for stricter regulations on carbon emissions.",
+    "band": "6.0",
+    "category": "Environment"
+  },
+  {
+    "word": "sustainable",
+    "ipa": "/səˈsteɪ.nə.bəl/",
+    "type": "adjective",
+    "definition": "able to be maintained without depleting natural resources",
+    "example": "We must transition to sustainable energy sources to combat global warming.",
+    "band": "6.0",
+    "category": "Environment"
+  },
+  {
+    "word": "evaluate",
+    "ipa": "/ɪˈvæl.ju.eɪt/",
+    "type": "verb",
+    "definition": "form an idea of the value or quality of; assess",
+    "example": "Researchers need to evaluate the long-term impacts of the new treatment.",
+    "band": "6.0",
+    "category": "Science & Education"
+  },
+  {
+    "word": "fluctuate",
+    "ipa": "/ˈflʌk.tʃu.eɪt/",
+    "type": "verb",
+    "definition": "rise and fall irregularly in number or amount",
+    "example": "Stock prices fluctuate constantly throughout the trading day.",
+    "band": "7.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "empirical",
+    "ipa": "/ɪmˈpɪr.ɪ.kəl/",
+    "type": "adjective",
+    "definition": "based on observation or experience rather than theory",
+    "example": "The researcher gathered empirical data to support her hypothesis.",
+    "band": "7.0",
+    "category": "Science"
+  },
+  {
+    "word": "adversity",
+    "ipa": "/ədˈvɜː.sə.ti/",
+    "type": "noun",
+    "definition": "a difficult or unpleasant situation",
+    "example": "She showed great resilience and determination in the face of adversity.",
+    "band": "8.0+",
+    "category": "General Academic"
+  },
+  {
+    "word": "detrimental",
+    "ipa": "/ˌdet.rɪˈmen.təl/",
+    "type": "adjective",
+    "definition": "tending to cause harm",
+    "example": "Smoking has a proven detrimental effect on long-term respiratory health.",
+    "band": "7.0",
+    "category": "Health"
+  },
+  {
+    "word": "exacerbate",
+    "ipa": "/ɪɡˈzæs.ə.beɪt/",
+    "type": "verb",
+    "definition": "make a problem or bad situation worse",
+    "example": "The lack of rain will exacerbate the already severe drought conditions.",
+    "band": "8.0+",
+    "category": "Environment"
+  },
+  {
+    "word": "mitigate",
+    "ipa": "/ˈmɪt.ɪ.ɡeɪt/",
+    "type": "verb",
+    "definition": "make less severe, serious, or painful",
+    "example": "Planting trees is a vital measure to mitigate the effects of climate change.",
+    "band": "7.0",
+    "category": "Environment"
+  },
+  {
+    "word": "unprecedented",
+    "ipa": "/ʌnˈpres.ɪ.den.tɪd/",
+    "type": "adjective",
+    "definition": "never done or known before",
+    "example": "The rise of the internet caused an unprecedented expansion of global trade.",
+    "band": "7.0",
+    "category": "History & Technology"
+  },
+  {
+    "word": "paradigm",
+    "ipa": "/ˈpær.ə.daɪm/",
+    "type": "noun",
+    "definition": "a typical example or pattern of something; a model",
+    "example": "The discovery of DNA created a new paradigm in biological sciences.",
+    "band": "8.0+",
+    "category": "Science"
+  },
+  {
+    "word": "indispensable",
+    "ipa": "/ˌɪn.dɪˈspen.sə.bəl/",
+    "type": "adjective",
+    "definition": "absolutely necessary",
+    "example": "A reliable internet connection has become indispensable for remote workers.",
+    "band": "7.0",
+    "category": "Work & Business"
+  },
+  {
+    "word": "prevalent",
+    "ipa": "/ˈprev.əl.ənt/",
+    "type": "adjective",
+    "definition": "widespread in a particular area or time",
+    "example": "Obesity is increasingly prevalent in modern societies due to sedentary lifestyles.",
+    "band": "6.0",
+    "category": "Health"
+  },
+  {
+    "word": "feasibility",
+    "ipa": "/ˌfiː.zəˈbɪl.ə.ti/",
+    "type": "noun",
+    "definition": "the state or degree of being easily or conveniently done",
+    "example": "A survey was conducted to evaluate the feasibility of the proposed railway line.",
+    "band": "7.0",
+    "category": "Work & Business"
+  },
+  {
+    "word": "cognitive",
+    "ipa": "/ˈkɒɡ.nə.tɪv/",
+    "type": "adjective",
+    "definition": "relating to mental processes of perception, memory, and judgment",
+    "example": "Studies show that learning a musical instrument improves cognitive development in children.",
+    "band": "7.0",
+    "category": "Education"
+  },
+  {
+    "word": "profound",
+    "ipa": "/prəˈfaʊnd/",
+    "type": "adjective",
+    "definition": "very great or intense; showing deep insight",
+    "example": "The invention of printing press had a profound impact on literacy levels.",
+    "band": "7.0",
+    "category": "Education & History"
+  },
+  {
+    "word": "equitable",
+    "ipa": "/ˈek.wɪ.tə.bəl/",
+    "type": "adjective",
+    "definition": "fair and impartial; treating everyone equally",
+    "example": "The group fights for an equitable distribution of resources across the region.",
+    "band": "8.0+",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "discrepancy",
+    "ipa": "/dɪsˈkrep.ən.si/",
+    "type": "noun",
+    "definition": "a lack of compatibility or similarity between facts",
+    "example": "The audit uncovered a minor discrepancy between cash records and bank balances.",
+    "band": "7.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "comprehensive",
+    "ipa": "/ˌkɒm.prɪˈhen.sɪv/",
+    "type": "adjective",
+    "definition": "complete; including all or nearly all aspects",
+    "example": "The government launched a comprehensive study on the effects of urban sprawl.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "ambivalent",
+    "ipa": "/æmˈbɪv.ə.lənt/",
+    "type": "adjective",
+    "definition": "having mixed feelings or contradictory ideas about something",
+    "example": "Many citizens remain ambivalent about the benefits of the new tax policy.",
+    "band": "8.0+",
+    "category": "Psychology & Society"
+  },
+  {
+    "word": "facilitate",
+    "ipa": "/fəˈsɪl.ɪ.teɪt/",
+    "type": "verb",
+    "definition": "make (an action or process) easy or easier",
+    "example": "Structured workshops help facilitate communication between developers and designers.",
+    "band": "6.0",
+    "category": "Work & Business"
+  },
+  {
+    "word": "proliferation",
+    "ipa": "/prəˌlɪf.əˈreɪ.ʃən/",
+    "type": "noun",
+    "definition": "rapid increase in numbers",
+    "example": "The proliferation of digital devices has transformed how children spend leisure time.",
+    "band": "8.0+",
+    "category": "Technology"
+  },
+  {
+    "word": "acquiesce",
+    "ipa": "/ˌæk.wiˈes/",
+    "type": "verb",
+    "definition": "accept something reluctantly but without protest",
+    "example": "The committee chose to acquiesce to the terms of the treaty to preserve peace.",
+    "band": "8.0+",
+    "category": "Social Dynamics"
+  },
+  {
+    "word": "anachronism",
+    "ipa": "/əˈnæk.rə.nɪ.zəm/",
+    "type": "noun",
+    "definition": "a thing belonging to a period other than that in which it exists",
+    "example": "In today's paperless offices, typewriter machines are considered a complete anachronism.",
+    "band": "8.0+",
+    "category": "History & Time"
+  },
+  {
+    "word": "capricious",
+    "ipa": "/kəˈprɪʃ.əs/",
+    "type": "adjective",
+    "definition": "given to sudden and unaccountable changes of mood or behavior",
+    "example": "The market's capricious behavior makes long-term forecasting extremely difficult.",
+    "band": "8.0+",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "dearth",
+    "ipa": "/dɜːθ/",
+    "type": "noun",
+    "definition": "a scarcity or lack of something",
+    "example": "There is a severe dearth of skilled healthcare professionals in remote rural areas.",
+    "band": "8.0+",
+    "category": "Economics & Resources"
+  },
+  {
+    "word": "didactic",
+    "ipa": "/daɪˈdæk.tɪk/",
+    "type": "adjective",
+    "definition": "intended to teach, particularly in having moral instruction",
+    "example": "The novel was criticized for its overly didactic tone instead of letting readers think.",
+    "band": "8.0+",
+    "category": "Education"
+  },
+  {
+    "word": "esoteric",
+    "ipa": "/ˌes.əˈter.ɪk/",
+    "type": "adjective",
+    "definition": "intended for or likely to be understood by only a small number of people",
+    "example": "He publishes articles on esoteric mathematical theories that few understand.",
+    "band": "8.0+",
+    "category": "Philosophy"
+  },
+  {
+    "word": "fastidious",
+    "ipa": "/fæsˈtɪd.i.əs/",
+    "type": "adjective",
+    "definition": "very attentive to and concerned about accuracy and detail",
+    "example": "The designer is fastidious about matching colors, spending hours on minor tweaks.",
+    "band": "8.0+",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "gregarious",
+    "ipa": "/ɡrɪˈɡeə.ri.əs/",
+    "type": "adjective",
+    "definition": "fond of company; sociable",
+    "example": "Dolphins are highly gregarious animals, traveling together in complex pods.",
+    "band": "8.0+",
+    "category": "Social Dynamics"
+  },
+  {
+    "word": "iconoclast",
+    "ipa": "/aɪˈkɒn.ə.klæst/",
+    "type": "noun",
+    "definition": "a person who attacks cherished beliefs or institutions",
+    "example": "As an iconoclast in the tech industry, she defied standard manufacturing guidelines.",
+    "band": "8.0+",
+    "category": "Society"
+  },
+  {
+    "word": "loquacious",
+    "ipa": "/ləʊˈkweɪ.ʃəs/",
+    "type": "adjective",
+    "definition": "talkative; tending to talk a great deal",
+    "example": "The loquacious host kept the dinner guests entertained with endless stories.",
+    "band": "8.0+",
+    "category": "Communication"
+  },
+  {
+    "word": "nefarious",
+    "ipa": "/nɪˈfeə.ri.əs/",
+    "type": "adjective",
+    "definition": "wicked, impious, or criminal",
+    "example": "The hackers executed a nefarious scheme to steal medical records from the system.",
+    "band": "8.0+",
+    "category": "Law & Justice"
+  },
+  {
+    "word": "obsequious",
+    "ipa": "/əbˈsiː.kwi.əs/",
+    "type": "adjective",
+    "definition": "obedient or attentive to an excessive or servile degree",
+    "example": "The manager preferred obsequious employees who never questioned his instructions.",
+    "band": "8.0+",
+    "category": "Social Dynamics"
+  },
+  {
+    "word": "pejorative",
+    "ipa": "/pɪˈdʒɒr.ə.tɪv/",
+    "type": "adjective",
+    "definition": "expressing contempt or disapproval",
+    "example": "He used the term in a pejorative sense to mock his rival's work.",
+    "band": "8.0+",
+    "category": "Language & Rhetoric"
+  },
+  {
+    "word": "quintessential",
+    "ipa": "/ˌkwɪn.tɪˈsen.ʃəl/",
+    "type": "adjective",
+    "definition": "representing the most perfect or typical example of a quality",
+    "example": "The museum is the quintessential classical building, with large pillars.",
+    "band": "8.0+",
+    "category": "General Academic"
+  },
+  {
+    "word": "sycophant",
+    "ipa": "/ˈsɪk.ə.fænt/",
+    "type": "noun",
+    "definition": "a person who acts obsequiously toward someone important in order to gain advantage",
+    "example": "The politician was surrounded by sycophants who praised his every word.",
+    "band": "8.0+",
+    "category": "Politics & Work"
+  },
+  {
+    "word": "aesthetic",
+    "ipa": "/esˈθet.ɪk/",
+    "type": "adjective",
+    "definition": "concerned with beauty or the appreciation of beauty",
+    "example": "The building has clean lines and is designed with high aesthetic value.",
+    "band": "7.0",
+    "category": "Arts & Culture"
+  },
+  {
+    "word": "benevolent",
+    "ipa": "/bəˈnev.əl.ənt/",
+    "type": "adjective",
+    "definition": "well meaning and kindly",
+    "example": "A benevolent donor funded the expansion of the community library.",
+    "band": "7.0",
+    "category": "Social Dynamics"
+  },
+  {
+    "word": "cogent",
+    "ipa": "/ˈkəʊ.dʒənt/",
+    "type": "adjective",
+    "definition": "clear, logical, and convincing",
+    "example": "The lawyer presented a cogent argument that swayed the entire jury.",
+    "band": "7.0",
+    "category": "Language & Rhetoric"
+  },
+  {
+    "word": "deference",
+    "ipa": "/ˈdef.ər.əns/",
+    "type": "noun",
+    "definition": "polite submission and respect",
+    "example": "Out of deference to the local elders, the developers modified the building plan.",
+    "band": "7.0",
+    "category": "Social Dynamics"
+  },
+  {
+    "word": "eccentric",
+    "ipa": "/ɪkˈsen.trɪk/",
+    "type": "adjective",
+    "definition": "unconventional and slightly strange",
+    "example": "The professor is known for his eccentric habits, such as wearing mismatched socks.",
+    "band": "7.0",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "fallacious",
+    "ipa": "/fəˈleɪ.ʃəs/",
+    "type": "adjective",
+    "definition": "based on a mistaken belief; logical fallacy",
+    "example": "The assumption that all technology increases happiness is fundamentally fallacious.",
+    "band": "7.0",
+    "category": "Logic & Science"
+  },
+  {
+    "word": "imminent",
+    "ipa": "/ˈɪm.ɪ.nənt/",
+    "type": "adjective",
+    "definition": "about to happen; impending",
+    "example": "Dark clouds gather, showing that a storm is imminent.",
+    "band": "7.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "lucrative",
+    "ipa": "/ˈluː.krə.tɪv/",
+    "type": "adjective",
+    "definition": "producing a great deal of profit",
+    "example": "Real estate investment has proved to be a highly lucrative market.",
+    "band": "7.0",
+    "category": "Business & Finance"
+  },
+  {
+    "word": "malevolent",
+    "ipa": "/məˈlev.əl.ənt/",
+    "type": "adjective",
+    "definition": "having or showing a wish to do evil to others",
+    "example": "The antagonist in the story has a malevolent desire to control the kingdom.",
+    "band": "7.0",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "nostalgia",
+    "ipa": "/nɒsˈtæl.dʒə/",
+    "type": "noun",
+    "definition": "a sentimental longing for the past",
+    "example": "The old photographs filled her with nostalgia for her college years.",
+    "band": "7.0",
+    "category": "Psychology"
+  },
+  {
+    "word": "precarious",
+    "ipa": "/prɪˈkeə.ri.əs/",
+    "type": "adjective",
+    "definition": "not securely held or in position; dangerously unstable",
+    "example": "Due to poor funding, many charities operate in a precarious financial state.",
+    "band": "7.0",
+    "category": "Economics & Society"
+  },
+  {
+    "word": "resilient",
+    "ipa": "/rɪˈzɪl.i.ənt/",
+    "type": "adjective",
+    "definition": "able to withstand or recover quickly from difficult conditions",
+    "example": "Children are often highly resilient, adapting quickly to new environments.",
+    "band": "7.0",
+    "category": "Psychology"
+  },
+  {
+    "word": "substantiate",
+    "ipa": "/səbˈstæn.ʃi.eɪt/",
+    "type": "verb",
+    "definition": "provide evidence to support or prove the truth of",
+    "example": "The detective could not find enough clues to substantiate the charges.",
+    "band": "7.0",
+    "category": "Science & Research"
+  },
+  {
+    "word": "tenacious",
+    "ipa": "/təˈneɪ.ʃəs/",
+    "type": "adjective",
+    "definition": "keeping a firm hold of something; clinging or determined",
+    "example": "Her tenacious pursuit of the goal eventually earned her a promotion.",
+    "band": "7.0",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "vehement",
+    "ipa": "/ˈviː.ə.mənt/",
+    "type": "adjective",
+    "definition": "showing strong feeling; forceful, passionate, or intense",
+    "example": "Despite vehement objections from residents, the city built the new highway.",
+    "band": "7.0",
+    "category": "Communication"
+  },
+  {
+    "word": "significant",
+    "ipa": "/sɪɡˈnɪf.ɪ.kənt/",
+    "type": "adjective",
+    "definition": "sufficiently great or important to be worthy of attention",
+    "example": "The study revealed a significant difference in academic scores between groups.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "indicate",
+    "ipa": "/ˈɪn.dɪ.keɪt/",
+    "type": "verb",
+    "definition": "point out; show or suggest",
+    "example": "Surveys indicate that public trust in mainstream media has declined.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "acquire",
+    "ipa": "/əˈkwaɪər/",
+    "type": "verb",
+    "definition": "buy or obtain for oneself; learn or develop",
+    "example": "Younger kids tend to acquire foreign languages much faster than adults.",
+    "band": "6.0",
+    "category": "Education"
+  },
+  {
+    "word": "benefit",
+    "ipa": "/ˈben.ɪ.fɪt/",
+    "type": "noun",
+    "definition": "an advantage or profit gained from something",
+    "example": "Regular physical exercise offers a wide range of physical health benefits.",
+    "band": "6.0",
+    "category": "Health"
+  },
+  {
+    "word": "conduct",
+    "ipa": "/kənˈdʌkt/",
+    "type": "verb",
+    "definition": "organize and carry out (an activity or task)",
+    "example": "Scientists plan to conduct research into the side effects of the vaccine.",
+    "band": "6.0",
+    "category": "Science"
+  },
+  {
+    "word": "impact",
+    "ipa": "/ˈɪm.pækt/",
+    "type": "noun",
+    "definition": "the action of one object coming forcibly into contact with another; effect",
+    "example": "Climate change has a severe impact on coral reefs worldwide.",
+    "band": "6.0",
+    "category": "Environment"
+  },
+  {
+    "word": "maintain",
+    "ipa": "/meɪnˈteɪn/",
+    "type": "verb",
+    "definition": "cause or enable (a condition or state of affairs) to continue",
+    "example": "The government needs to maintain infrastructure to ensure public safety.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "regulate",
+    "ipa": "/ˈreɡ.jə.leɪt/",
+    "type": "verb",
+    "definition": "control or maintain the rate or speed of a machine or process",
+    "example": "Agencies regulate food safety standards to prevent public health crises.",
+    "band": "6.0",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "compensate",
+    "ipa": "/ˈkɒm.pən.seɪt/",
+    "type": "verb",
+    "definition": "give someone something, typically money, in recognition of loss or injury",
+    "example": "The company chose to compensate residents for the noise pollution.",
+    "band": "6.0",
+    "category": "Law & Society"
+  },
+  {
+    "word": "rational",
+    "ipa": "/ˈræʃ.ən.əl/",
+    "type": "adjective",
+    "definition": "based on or in accordance with reason or logic",
+    "example": "Humans often fail to make rational decisions when buying consumer goods.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "diverse",
+    "ipa": "/daɪˈvɜːs/",
+    "type": "adjective",
+    "definition": "showing a great deal of variety; very different",
+    "example": "A diverse workplace fosters innovation and improves overall problem solving.",
+    "band": "6.0",
+    "category": "Society"
+  },
+  {
+    "word": "evident",
+    "ipa": "/ˈev.ɪ.dənt/",
+    "type": "adjective",
+    "definition": "plain or obvious; clearly seen or understood",
+    "example": "The decline in animal population is evident due to extensive habitat destruction.",
+    "band": "6.0",
+    "category": "Environment"
+  },
+  {
+    "word": "incentive",
+    "ipa": "/ɪnˈsen.tɪv/",
+    "type": "noun",
+    "definition": "a thing that motivates or encourages one to do something",
+    "example": "Tax breaks provide a strong incentive for companies to go green.",
+    "band": "6.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "perspective",
+    "ipa": "/pəˈspek.tɪv/",
+    "type": "noun",
+    "definition": "a particular attitude toward or way of regarding something; point of view",
+    "example": "Studying history helps us understand political shifts from a broader perspective.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "utilize",
+    "ipa": "/ˈjuː.tɪ.laɪz/",
+    "type": "verb",
+    "definition": "make practical and effective use of",
+    "example": "Farms utilize drip irrigation methods to conserve water in arid regions.",
+    "band": "6.0",
+    "category": "Science"
+  },
+  {
+    "word": "proportion",
+    "ipa": "/prəˈpɔː.ʃən/",
+    "type": "noun",
+    "definition": "a part, share, or number considered in relation to a whole",
+    "example": "A large proportion of the city budget goes to public transport expansion.",
+    "band": "6.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "consent",
+    "ipa": "/kənˈsent/",
+    "type": "noun",
+    "definition": "permission for something to happen or agreement to do something",
+    "example": "Medical procedures require written consent from the patient.",
+    "band": "6.0",
+    "category": "Law & Society"
+  },
+  {
+    "word": "equivalent",
+    "ipa": "/ɪˈkwɪv.əl.ənt/",
+    "type": "adjective",
+    "definition": "equal in value, measure, force, effect, or significance",
+    "example": "Driving without sleeping can be equivalent to driving under influence.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "integrate",
+    "ipa": "/ˈɪn.tɪ.ɡreɪt/",
+    "type": "verb",
+    "definition": "combine one thing with another so that they become a whole",
+    "example": "Schools try to integrate technology into classroom activities.",
+    "band": "6.0",
+    "category": "Education"
+  },
+  {
+    "word": "valid",
+    "ipa": "/ˈvæl.ɪd/",
+    "type": "adjective",
+    "definition": "having a sound basis in logic or fact; reasonable or cogent",
+    "example": "The opponent raised a valid objection against building the factory near the school.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "reconcile",
+    "ipa": "/ˈrek.ən.saɪl/",
+    "type": "verb",
+    "definition": "restore friendly relations between; co-exist in harmony",
+    "example": "It is difficult to reconcile economic expansion with complete ecosystem protection.",
+    "band": "6.0",
+    "category": "Environment"
+  },
+  {
+    "word": "fundamental",
+    "ipa": "/ˌfʌn.dəˈmen.təl/",
+    "type": "adjective",
+    "definition": "forming a necessary base or core; of central importance",
+    "example": "Freedom of speech is a fundamental right in modern democratic societies.",
+    "band": "6.0",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "capacity",
+    "ipa": "/kəˈpæs.ə.ti/",
+    "type": "noun",
+    "definition": "the maximum amount that something can contain; ability",
+    "example": "The solar plant operates at full capacity during summer months.",
+    "band": "6.0",
+    "category": "Technology"
+  },
+  {
+    "word": "subsequent",
+    "ipa": "/ˈsʌb.sɪ.kwənt/",
+    "type": "adjective",
+    "definition": "coming after something in time; following",
+    "example": "The initial success led to subsequent investment in research.",
+    "band": "6.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "arbitrary",
+    "ipa": "/ˈɑː.bɪ.trər.i/",
+    "type": "adjective",
+    "definition": "based on random choice or personal whim, rather than reason",
+    "example": "The selection of color themes seemed arbitrary rather than designed.",
+    "band": "7.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "coerce",
+    "ipa": "/kəʊˈɜːs/",
+    "type": "verb",
+    "definition": "persuade an unwilling person to do something by using force or threats",
+    "example": "The cartel tried to coerce farmers into selling their land at low prices.",
+    "band": "7.0",
+    "category": "Law & Justice"
+  },
+  {
+    "word": "conducive",
+    "ipa": "/kənˈdʒuː.sɪv/",
+    "type": "adjective",
+    "definition": "making a certain situation or outcome likely or possible",
+    "example": "A quiet library is highly conducive to deep learning and reading.",
+    "band": "7.0",
+    "category": "Education"
+  },
+  {
+    "word": "depict",
+    "ipa": "/dɪˈpɪkt/",
+    "type": "verb",
+    "definition": "show or represent by a drawing, painting, or other art form",
+    "example": "The paintings depict life in rural villages during the 18th century.",
+    "band": "7.0",
+    "category": "Arts & Culture"
+  },
+  {
+    "word": "elucidate",
+    "ipa": "/iˈluː.sɪ.deɪt/",
+    "type": "verb",
+    "definition": "make something clear; explain",
+    "example": "The speaker used slide diagrams to elucidate the complex system changes.",
+    "band": "7.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "formidable",
+    "ipa": "/fɔːˈmɪd.ə.bəl/",
+    "type": "adjective",
+    "definition": "inspiring fear or respect through being impressively large or powerful",
+    "example": "The champion faces a formidable opponent in the final tennis match.",
+    "band": "7.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "incongruous",
+    "ipa": "/ɪnˈkɒŋ.ɡru.əs/",
+    "type": "adjective",
+    "definition": "not in harmony or keeping with the surroundings or other aspects",
+    "example": "The steel skyscraper looks incongruous next to the historic stone cottages.",
+    "band": "7.0",
+    "category": "Arts & Culture"
+  },
+  {
+    "word": "inherent",
+    "ipa": "/ɪnˈhɪə.rənt/",
+    "type": "adjective",
+    "definition": "existing in something as a permanent, essential, or characteristic attribute",
+    "example": "There are inherent risks in trading crypto assets that investors must know.",
+    "band": "7.0",
+    "category": "Finance & Economics"
+  },
+  {
+    "word": "manifest",
+    "ipa": "/ˈmæn.ɪ.fest/",
+    "type": "verb",
+    "definition": "display or show (a quality or feeling) by one's acts or appearance; demonstrate",
+    "example": "Symptoms of the illness can manifest in many different ways.",
+    "band": "7.0",
+    "category": "Health"
+  },
+  {
+    "word": "paramount",
+    "ipa": "/ˈpær.ə.maʊnt/",
+    "type": "adjective",
+    "definition": "more important than anything else; supreme",
+    "example": "Ensuring passenger safety is of paramount importance to the airline.",
+    "band": "7.0",
+    "category": "General Academic"
+  },
+  {
+    "word": "preclude",
+    "ipa": "/prɪˈkluːd/",
+    "type": "verb",
+    "definition": "prevent from happening; make impossible",
+    "example": "A pre-existing injury might preclude athletes from entering the competition.",
+    "band": "7.0",
+    "category": "Health"
+  },
+  {
+    "word": "volatile",
+    "ipa": "/ˈvɒl.ə.taɪl/",
+    "type": "adjective",
+    "definition": "liable to change rapidly and unpredictably, especially for the worse",
+    "example": "The political situation in the border region remains extremely volatile.",
+    "band": "7.0",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "obfuscate",
+    "ipa": "/ˈɒb.fʌs.keɪt/",
+    "type": "verb",
+    "definition": "render obscure, unclear, or unintelligible",
+    "example": "Lawyers often write terms in dense jargon to obfuscate simple meanings.",
+    "band": "8.0+",
+    "category": "Language & Rhetoric"
+  },
+  {
+    "word": "superfluous",
+    "ipa": "/suːˈpɜː.flu.əs/",
+    "type": "adjective",
+    "definition": "unnecessary, especially through being more than enough",
+    "example": "The editor deleted superfluous sentences to keep the article concise.",
+    "band": "8.0+",
+    "category": "General Academic"
+  },
+  {
+    "word": "recalcitrant",
+    "ipa": "/rɪˈkæl.sɪ.trənt/",
+    "type": "adjective",
+    "definition": "having an obstinately uncooperative attitude toward authority",
+    "example": "The manager struggled to handle the recalcitrant team member during meetings.",
+    "band": "8.0+",
+    "category": "Human Behavior"
+  },
+  {
+    "word": "venerable",
+    "ipa": "/ˈven.ər.ə.bəl/",
+    "type": "adjective",
+    "definition": "accorded a great deal of respect, especially because of age, wisdom, or character",
+    "example": "The venerable professor received a standing ovation at her retirement dinner.",
+    "band": "8.0+",
+    "category": "Education"
+  },
+  {
+    "word": "spurious",
+    "ipa": "/ˈspjʊə.ri.əs/",
+    "type": "adjective",
+    "definition": "not being what it purports to be; false or fake",
+    "example": "The politician's claims were based on spurious data that lacked scientific support.",
+    "band": "8.0+",
+    "category": "Politics & Government"
+  },
+  {
+    "word": "transient",
+    "ipa": "/ˈtræn.zi.ənt/",
+    "type": "adjective",
+    "definition": "lasting only for a short time; impermanent",
+    "example": "The city has a transient population of students who leave every summer.",
+    "band": "8.0+",
+    "category": "General Academic"
+  },
+  {
+    "word": "capitulate",
+    "ipa": "/kəˈpɪtʃ.ʊ.leɪt/",
+    "type": "verb",
+    "definition": "cease to resist an opponent or an unwelcome demand; surrender",
+    "example": "The company chose to capitulate to the union's demands after a week of strike.",
+    "band": "8.0+",
+    "category": "Work & Business"
+  },
+  {
+    "word": "alacrity",
+    "ipa": "/əˈlæk.rə.ti/",
+    "type": "noun",
+    "definition": "brisk and cheerful readiness",
+    "example": "She accepted the promotion with alacrity, excited to take on new duties.",
+    "band": "8.0+",
+    "category": "Human Behavior"
+  }
+]

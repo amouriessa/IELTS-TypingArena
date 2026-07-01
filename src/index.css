@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Outfit', 'Inter', 'SF Pro Display', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+  --font-vt323: 'VT323', monospace;
+
+  --color-light-cream: #fbf7e8;
+  --color-dark-maroon: #6E1B2B;
+  --color-darker-maroon: #4A1220;
+  --color-soft-mustard: #E4D189;
+  --color-dark-mustard: #B99A2E;
+  --color-sky-blue: #AFC9E8;
+  --color-dark-blue: #5D91D0;
+  --color-super-dark-blue: #1A375B;
+  --color-coral: #E8735C;
+  --color-soft-pink: #F8D9E3;
+  --color-pink: #F3AFC4;
+}
+
+/* Custom Scrollbar Styles for Glassmorphism */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.3);
+  border-radius: 9999px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.6);
+}
+
+/* Custom Caret (Cursor) Blinking Animation */
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.animate-caret-blink {
+  animation: blink 1s infinite;
+}
+
+/* Smooth typing transitions */
+.char-transition {
+  transition: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* Subtle glow effects */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.glow-success {
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.15);
+}
+
+.trophy-wrap{
+  width:66px;
+  height:80px;
+  position:relative;
+}
+
+.trophy{
+  position:relative;
+  width:6px;
+  height:6px;
+  background:var(--color-coral);
+  top:4px;
+  left:12px;
+  transform:scale(2.2); /* perbesar pixel art tanpa blur, image-rendering otomatis crisp karena ini blok solid bukan raster */
+  box-shadow:
+    /* baris 0 — bibir cup */
+    6px 0 0 var(--color-coral), 12px 0 0 var(--color-coral), 18px 0 0 var(--color-coral), 24px 0 0 var(--color-coral),
+    /* baris 1 */
+    0 6px 0 var(--color-coral), 6px 6px 0 var(--color-coral), 12px 6px 0 var(--color-coral), 18px 6px 0 var(--color-coral), 24px 6px 0 var(--color-coral),
+    /* baris 2 — bagian pegangan (lebih lebar) */
+    -6px 12px 0 var(--color-coral), 0 12px 0 var(--color-coral), 6px 12px 0 var(--color-coral), 12px 12px 0 var(--color-coral),
+    18px 12px 0 var(--color-coral), 24px 12px 0 var(--color-coral), 30px 12px 0 var(--color-coral),
+    /* baris 3 */
+    0 18px 0 var(--color-coral), 6px 18px 0 var(--color-coral), 12px 18px 0 var(--color-coral), 18px 18px 0 var(--color-coral), 24px 18px 0 var(--color-coral),
+    /* baris 4 — menyempit ke leher */
+    6px 24px 0 var(--color-coral), 12px 24px 0 var(--color-coral), 18px 24px 0 var(--color-coral),
+    /* baris 5 — leher/stem, ganti warna */
+    12px 30px 0 var(--color-dark-mustard),
+    /* baris 6 — mulai melebar ke alas */
+    6px 36px 0 var(--color-dark-mustard), 12px 36px 0 var(--color-dark-mustard), 18px 36px 0 var(--color-dark-mustard),
+    /* baris 7 — alas/base */
+    0 42px 0 var(--color-dark-mustard), 6px 42px 0 var(--color-dark-mustard), 12px 42px 0 var(--color-dark-mustard), 18px 42px 0 var(--color-dark-mustard), 24px 42px 0 var(--color-dark-mustard);
+}
+
+body {
+  background: #F4EFD3;
+  color: #f1f5f9;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
