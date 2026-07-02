@@ -320,7 +320,7 @@ export default function App() {
       <footer className="w-full max-w-4xl mx-auto text-center py-4 mt-8 border-t border-dark-maroon text-xs text-darker-maroon flex flex-wrap items-center justify-between gap-4">
         <div>IELTS Prep & 10-Finger Touch Typing Application</div>
         <div className="flex gap-4">
-          <a href="#" className="hover:text-dark-mustard transition">GitHub Repo</a>
+          <a href="https://github.com/amouriessa/IELTS-TypingArena.git" className="hover:text-dark-mustard transition">GitHub Repo</a>
           {/* <span>•</span>
           <a href="#" className="hover:text-dark-mustard transition">About Project</a> */}
         </div>
