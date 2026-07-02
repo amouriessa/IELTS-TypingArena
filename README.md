@@ -84,6 +84,6 @@ Filter training sessions based on vocabulary proficiency goals:
 
 This project is deployed on Vercel. You can access the live application using the link below:
 
-🔗 [https://](https://ssa-ielts-typing-arena.vercel.app/)
+🔗 https://ssa-ielts-typing-arena.vercel.app/
 
 ---
