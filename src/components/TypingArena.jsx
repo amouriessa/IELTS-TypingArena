@@ -3,6 +3,7 @@ import { RefreshCw, Play, RotateCcw, AlertCircle, VolumeX, Volume2 } from 'lucid
 import SoundManager from './SoundManager';
 import WordDetails from './WordDetails';
 import VirtualKeyboard from './VirtualKeyboard';
+import { fetchWordDetails } from '../utils/vocabHelper';
 
 export default function TypingArena({
   wordsList,
@@ -10,6 +11,7 @@ export default function TypingArena({
   soundProfile,
   soundEnabled,
   autoPlayAudio,
+  showTranslation = true,
   definitionCache,
   setDefinitionCache,
   onSessionComplete
@@ -17,6 +19,7 @@ export default function TypingArena({
   // Test states
   const [started, setStarted] = useState(false);
   const [timeLeft, setTimeLeft] = useState(duration);
+  const [elapsedTime, setElapsedTime] = useState(0);
   const [words, setWords] = useState([]);
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [typedChars, setTypedChars] = useState(''); // input of active word
@@ -34,6 +37,8 @@ export default function TypingArena({
   const timerRef = useRef(null);
   const arenaRef = useRef(null);
   const finishSessionRef = useRef(null);
+  const wordStreamRef = useRef(null);
+  const prefetchingRef = useRef(new Set());
 
   // Keep the ref pointing to the latest version of finishSession
   useEffect(() => {
@@ -57,11 +62,16 @@ export default function TypingArena({
     setTypedChars('');
     setCompletedWordsInput([]);
     setStarted(false);
-    setTimeLeft(duration);
+    setTimeLeft(duration === 'zen' ? 0 : duration);
+    setElapsedTime(0);
     setCorrectCharCount(0);
     setTotalCharCount(0);
     setErrorCount(0);
     setMissedWords(new Set());
+    if (wordStreamRef.current) {
+      wordStreamRef.current.scrollTop = 0;
+    }
+    prefetchingRef.current = new Set();
     
     if (inputRef.current) {
       inputRef.current.value = '';
@@ -71,29 +81,93 @@ export default function TypingArena({
 
   // Timer logic
   useEffect(() => {
-    if (started && timeLeft > 0) {
-      timerRef.current = setInterval(() => {
-        setTimeLeft((prev) => {
-          if (prev <= 1) {
-            clearInterval(timerRef.current);
-            if (finishSessionRef.current) {
-              finishSessionRef.current();
+    if (started) {
+      if (duration === 'zen') {
+        timerRef.current = setInterval(() => {
+          setElapsedTime((prev) => prev + 1);
+        }, 1000);
+      } else if (timeLeft > 0) {
+        timerRef.current = setInterval(() => {
+          setTimeLeft((prev) => {
+            if (prev <= 1) {
+              clearInterval(timerRef.current);
+              if (finishSessionRef.current) {
+                finishSessionRef.current();
+              }
+              return 0;
             }
-            return 0;
-          }
-          return prev - 1;
-        });
-      }, 1000);
+            return prev - 1;
+          });
+        }, 1000);
+      }
     }
     return () => clearInterval(timerRef.current);
-  }, [started]);
+  }, [started, duration, timeLeft]);
+
+  // Scroll active word into view
+  useEffect(() => {
+    if (wordStreamRef.current) {
+      const activeEl = wordStreamRef.current.querySelector('.active-word');
+      if (activeEl) {
+        const container = wordStreamRef.current;
+        const activeTop = activeEl.offsetTop;
+        const activeHeight = activeEl.offsetHeight;
+        const containerHeight = container.clientHeight;
+        const containerScrollTop = container.scrollTop;
+
+        // If the active word is below the visible area of the container
+        if (activeTop + activeHeight > containerScrollTop + containerHeight) {
+          container.scrollTo({
+            top: activeTop - containerHeight / 2 + activeHeight / 2,
+            behavior: 'smooth'
+          });
+        } 
+        // If the active word is above the visible area of the container (e.g. on restart)
+        else if (activeTop < containerScrollTop) {
+          container.scrollTo({
+            top: activeTop,
+            behavior: 'smooth'
+          });
+        }
+      }
+    }
+  }, [currentWordIdx]);
+
+  // Pre-fetch upcoming words in the background (current word + next 3 words)
+  useEffect(() => {
+    if (!words || words.length === 0) return;
+
+    const prefetchRange = 3;
+    for (let i = 0; i <= prefetchRange; i++) {
+      const nextIdx = currentWordIdx + i;
+      if (nextIdx < words.length) {
+        const nextWordObj = words[nextIdx];
+        const nextWord = nextWordObj.word;
+        const nextType = nextWordObj.type;
+
+        if (!definitionCache[nextWord] && !prefetchingRef.current.has(nextWord)) {
+          prefetchingRef.current.add(nextWord);
+          fetchWordDetails(nextWord, nextType).then((details) => {
+            setDefinitionCache((prev) => ({
+              ...prev,
+              [nextWord]: details
+            }));
+            prefetchingRef.current.delete(nextWord);
+          }).catch(() => {
+            prefetchingRef.current.delete(nextWord);
+          });
+        }
+      }
+    }
+  }, [currentWordIdx, words, definitionCache, setDefinitionCache]);
 
   const finishSession = (finalCompleted = completedWordsInput, finalTyped = typedChars) => {
     // Calculate final stats
     // Calculate how many total correct characters were typed
     // Every 5 characters is 1 word in typing metrics
-    const finalTimeElapsed = duration - timeLeft || 1; // avoid division by 0
-    const timeInMinutes = (duration - timeLeft + 1) / 60;
+    const finalTimeElapsed = duration === 'zen' ? elapsedTime : (duration - timeLeft);
+    const activeTimeElapsed = finalTimeElapsed > 0 ? finalTimeElapsed : 1; // avoid division by 0
+    const timeInMinutes = activeTimeElapsed / 60;
     
     // We compute total correct characters from scratch
     let totalCorrect = 0;
@@ -133,8 +207,8 @@ export default function TypingArena({
       }
     }
 
-    const calculatedWpm = Math.round((totalCorrect / 5) / (duration / 60));
-    const rawWpm = Math.round((totalTyped / 5) / (duration / 60));
+    const calculatedWpm = Math.round((totalCorrect / 5) / timeInMinutes);
+    const rawWpm = Math.round((totalTyped / 5) / timeInMinutes);
     const accuracy = totalTyped > 0 ? Math.round((totalCorrect / totalTyped) * 100) : 0;
 
     onSessionComplete({
@@ -226,7 +300,7 @@ export default function TypingArena({
 
   // WPM Real-time calculation helper
   const getRealtimeWpm = () => {
-    const timeElapsed = duration - timeLeft;
+    const timeElapsed = duration === 'zen' ? elapsedTime : (duration - timeLeft);
     if (timeElapsed === 0) return 0;
     
     let totalCorrect = 0;
@@ -248,10 +322,14 @@ export default function TypingArena({
       {/* Top Header stats */}
       <div className="flex justify-between items-center bg-darker-maroon backdrop-blur-md p-4 border border-dark-mustard glow-primary">
         <div className="flex items-center gap-6">
-          {/* Time Remaining */}
+          {/* Time Remaining / Elapsed */}
           <div>
-            <span className="text-[10px] font-bold text-dark-mustard uppercase tracking-wider block">Time Left</span>
-            <span className="text-xl font-mono text-soft-pink">{timeLeft}s</span>
+            <span className="text-[10px] font-bold text-dark-mustard uppercase tracking-wider block">
+              {duration === 'zen' ? 'Time Elapsed' : 'Time Left'}
+            </span>
+            <span className="text-xl font-mono text-soft-pink">
+              {duration === 'zen' ? `${elapsedTime}s` : `${timeLeft}s`}
+            </span>
           </div>
           {/* Real-time WPM */}
           <div>
@@ -268,6 +346,14 @@ export default function TypingArena({
         </div>
 
         <div className="flex items-center gap-2">
+          {duration === 'zen' && started && (
+            <button
+              onClick={() => finishSession()}
+              className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold text-light-cream bg-coral border border-slate-800 hover:bg-coral/80 rounded-xl active:scale-95 transition-all cursor-pointer animate-fade-in"
+            >
+              Finish Practice
+            </button>
+          )}
           {/* Restart Button */}
           <button
             onClick={resetTest}
@@ -313,7 +399,7 @@ export default function TypingArena({
         )}
 
         {/* Word Stream Container */}
-        <div className="flex flex-wrap gap-x-4 gap-y-3 text-lg md:text-xl font-mono leading-relaxed select-none overflow-hidden max-h-32">
+        <div ref={wordStreamRef} className="flex flex-wrap gap-x-4 gap-y-3 text-lg md:text-xl font-mono leading-relaxed select-none overflow-y-hidden max-h-32 scroll-smooth">
           {words.map((wordObj, wordIdx) => {
             const isCurrent = wordIdx === currentWordIdx;
             const isPast = wordIdx < currentWordIdx;
@@ -324,7 +410,7 @@ export default function TypingArena({
               <span
                 key={wordObj.word + '-' + wordIdx}
                 className={`relative px-1 py-0.5 rounded transition-all duration-150 ${
-                  isCurrent ? 'bg-dark-maroon/30 border-b-2 border-dark-maroon/30 scale-102' : ''
+                  isCurrent ? 'bg-dark-maroon/30 border-b-2 border-dark-maroon/30 scale-102 active-word' : ''
                 } ${isPast && hasError ? 'border-b border-red-500/30' : ''}`}
               >
                 {wordObj.word.split('').map((char, charIdx) => {
@@ -389,6 +475,7 @@ export default function TypingArena({
         wordInfo={activeWord}
         autoPlayEnabled={autoPlayAudio}
         playbackRate={1.0}
+        showTranslation={showTranslation}
         definitionCache={definitionCache}
         setDefinitionCache={setDefinitionCache}
       />

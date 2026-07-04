@@ -3,7 +3,7 @@ import { RefreshCw, ArrowLeft, Trophy, AlertTriangle, BookOpen, Volume2, HelpCir
 import confetti from 'canvas-confetti';
 import SoundManager from './SoundManager';
 
-export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBackHome, definitionCache = {} }) {
+export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBackHome, showTranslation = true, definitionCache = {} }) {
   const { wpm, rawWpm, accuracy, errors, correctChars, totalChars, missedWords } = results;
   const [expandedWord, setExpandedWord] = useState(null);
 
@@ -164,7 +164,7 @@ export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBa
             return (
               <div
                 key={wordObj.word + '-' + idx}
-                className={`bg-soft-mustard border-2 rounded-xl overflow-hidden transition-all duration-200 ${isExpanded ? 'border-dark-maroon bg-dark-mustard' : 'border-dark-maroon hover:border-darker-maroon'
+                className={`bg-soft-mustard border-2 rounded-xl overflow-hidden transition-all duration-200 shrink-0 ${isExpanded ? 'border-dark-maroon bg-dark-mustard' : 'border-dark-maroon hover:border-darker-maroon'
                   }`}
               >
                 {/* Accordion Trigger */}
@@ -172,8 +172,13 @@ export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBa
                   onClick={() => setExpandedWord(isExpanded ? null : wordObj.word)}
                   className="flex items-center justify-between p-3.5 cursor-pointer select-none"
                 >
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-3 flex-wrap">
                     <span className="font-semibold text-dark-maroon">{wordObj.word}</span>
+                    {showTranslation && cached.wordId && (
+                      <span className="text-xs font-semibold text-coral/95 bg-coral/5 px-1.5 py-0.2 border border-coral/10 rounded uppercase">
+                        {cached.wordId}
+                      </span>
+                    )}
                     <span className="text-xs font-mono text-super-dark-blue">{cached.ipa}</span>
                     <span className="text-[10px] font-bold text-light-cream bg-coral px-2 py-0.5 rounded-full uppercase tracking-wide">
                       Mistyped
@@ -201,11 +206,21 @@ export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBa
                     <div>
                       <span className="text-[10px] font-bold text-dark-maroon uppercase tracking-wider block mb-0.5">Definition ({wordObj.type})</span>
                       <p className="text-light-cream">{cached.definition}</p>
+                      {showTranslation && cached.definitionId && (
+                        <p className="text-light-cream/70 italic text-xs mt-1 border-l border-light-cream/35 pl-2">
+                          {cached.definitionId}
+                        </p>
+                      )}
                     </div>
                     {cached.example && (
                       <div>
                         <span className="text-[10px] font-bold text-dark-maroon uppercase tracking-wider block mb-0.5">Example Sentence</span>
                         <p className="text-light-cream italic">"{cached.example}"</p>
+                        {showTranslation && cached.exampleId && (
+                          <p className="text-light-cream/70 text-xs mt-1 border-l border-light-cream/35 pl-2">
+                            "{cached.exampleId}"
+                          </p>
+                        )}
                       </div>
                     )}
                   </div>
@@ -229,15 +244,20 @@ export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBa
                 return (
                   <div
                     key={wordObj.word + '-correct-' + idx}
-                    className={`bg-slate-900/10 border rounded-xl overflow-hidden transition-all duration-200 ${isExpanded ? 'border-indigo-500/30 bg-slate-900/60' : 'border-slate-850/40 hover:border-slate-800/60'
+                    className={`bg-slate-900/10 border rounded-xl overflow-hidden transition-all duration-200 shrink-0 ${isExpanded ? 'border-indigo-500/30 bg-slate-900/60' : 'border-slate-850/40 hover:border-slate-800/60'
                       }`}
                   >
                     <div
                       onClick={() => setExpandedWord(isExpanded ? null : wordObj.word)}
                       className="flex items-center justify-between p-3.5 cursor-pointer select-none"
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-3 flex-wrap">
                         <span className="font-semibold text-slate-400">{wordObj.word}</span>
+                        {showTranslation && cached.wordId && (
+                          <span className="text-xs font-semibold text-emerald-400/90 bg-emerald-500/5 px-1.5 py-0.2 border border-emerald-500/10 rounded uppercase">
+                            {cached.wordId}
+                          </span>
+                        )}
                         <span className="text-xs font-mono text-slate-600">{cached.ipa}</span>
                         <span className="text-[10px] font-bold text-emerald-400/90 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/20 uppercase tracking-wide">
                           Correct
@@ -264,11 +284,21 @@ export default function ResultsScreen({ results, onRetry, onPracticeMissed, onBa
                         <div>
                           <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-0.5">Definition ({wordObj.type})</span>
                           <p className="text-slate-300">{cached.definition}</p>
+                          {showTranslation && cached.definitionId && (
+                            <p className="text-slate-400/75 italic text-xs mt-1 border-l border-slate-700 pl-2">
+                              {cached.definitionId}
+                            </p>
+                          )}
                         </div>
                         {cached.example && (
                           <div>
                             <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block mb-0.5">Example Sentence</span>
                             <p className="text-slate-400 italic">"{cached.example}"</p>
+                            {showTranslation && cached.exampleId && (
+                              <p className="text-slate-400/75 text-xs mt-1 border-l border-slate-700 pl-2">
+                                "{cached.exampleId}"
+                              </p>
+                            )}
                           </div>
                         )}
                       </div>

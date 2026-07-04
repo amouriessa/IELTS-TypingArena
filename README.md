@@ -50,22 +50,29 @@ Filter training sessions based on vocabulary proficiency goals:
   * **Bubble Pop Feedback:** Playful, rounded pop feedback.
 * Features error buzzer audio feedback when a typo occurs.
 
-### 4. 📖 On-The-Fly Dictionary & TTS Pronunciation Helper
+### 4. 📖 On-The-Fly Dictionary & Translations (Kamus Helper)
 * Fetches International Phonetic Alphabet (IPA) transcriptions, definitions, and contextual usage examples dynamically using the **Free Dictionary API**.
+* **Kamus Helper (Indonesian Translations):** Integrates dynamic Indonesian translations for words, definitions, and usage context in the background (can be toggled on/off on the settings page).
+* **Background Pre-fetching:** Pre-downloads definitions and translations for upcoming words in the session to ensure instant, zero-latency rendering as you type.
 * **TTS (Text-to-Speech):** Reads out the current word as you type to train audio-visual recognition.
 * Automatically switches to a localized offline cache mode if the network or API is offline.
 
 ### 5. ⚡ Real-Time Statistics & Review Dashboard
-* Tracks Live WPM (Words Per Minute), time remaining, and progress live in the header.
+* Tracks Live WPM (Words Per Minute), time remaining (or elapsed time in Zen Mode), and progress live in the header.
 * **Result Screen Analytics:** Provides speed metrics (Net WPM, Raw WPM), accuracy percentage, and mistake breakdowns.
-* **Interactive Review List:** Shows correctly typed and mistyped words. Expand any word to view its definition, pronunciation spelling, and example context.
+* **Interactive Review List:** Shows correctly typed and mistyped words. Expand any word to view its definition, pronunciation, example context, and Indonesian translations.
 * Celebrates excellent attempts (WPM ≥ 30 and Accuracy ≥ 90%) with synthesized chime arpeggios and confetti animations.
 
 ### 6. 🔄 Smart Review Mode (Practice Missed Words)
 * At the end of a session, if you made mistakes, you can enter a targeted training session focusing exclusively on the words you mistyped.
 
-### 7. 🏆 Local Leaderboard
-* Stores your top 5 personal best scores inside the browser's `localStorage`, logging WPM, Accuracy, Band level, duration, and date.
+### 7. 🧘 Zen Mode (Untimed Practice Mode)
+* Allows untimed touch-typing practice without the pressure of a countdown clock, focusing entirely on finger placement, visual memory, and vocabulary absorption.
+* Features a count-up timer ("Time Elapsed") and a "Finish Practice" button to complete sessions manually.
+* Automatically calculates Net/Raw WPM based on actual elapsed practice time.
+
+### 8. 🏆 Local Leaderboard
+* Stores your top 5 personal best scores inside the browser's `localStorage`, logging WPM, Accuracy, Band level, duration (including Zen attempts), and date.
 
 ---
 

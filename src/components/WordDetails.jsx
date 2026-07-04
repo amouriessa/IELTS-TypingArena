@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { Volume2, BookOpen, Compass, GraduationCap, Loader2, AlertCircle } from 'lucide-react';
+import { fetchWordDetails } from '../utils/vocabHelper';
 
 export default function WordDetails({
   wordInfo,
   autoPlayEnabled = false,
   playbackRate = 1.0,
+  showTranslation = true,
   definitionCache = {},
   setDefinitionCache
 }) {
@@ -31,56 +33,31 @@ export default function WordDetails({
       return;
     }
 
-    // Otherwise, fetch from Dictionary API on the fly
+    // Otherwise, fetch from dictionary and translate in the background
     setLoading(true);
-    const fetchDetails = async () => {
+    const loadDetails = async () => {
       try {
-        const res = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${word}`);
-        if (!res.ok) {
-          throw new Error('Word details not found in Dictionary API');
-        }
-        const data = await res.json();
+        const finalDetails = await fetchWordDetails(word, type);
         
-        if (!active) return;
-
-        const entry = data[0];
-        const ipaText = entry.phonetic || (entry.phonetics && entry.phonetics.find(p => p.text)?.text) || `/${word}/`;
-        
-        // Find meaning matching POS or default
-        const meaning = entry.meanings.find(m => m.partOfSpeech.toLowerCase() === type.toLowerCase()) || entry.meanings[0];
-        const def = meaning?.definitions[0]?.definition || "Definition not available.";
-        let ex = meaning?.definitions[0]?.example || `Understanding the term "${word}" is highly beneficial for academic IELTS essays.`;
-
-        const newDetails = { ipa: ipaText, definition: def, example: ex };
-
-        // Save in Cache
+        // Cache globally so that the Results review list can read it
         if (setDefinitionCache) {
-          setDefinitionCache(prev => ({ ...prev, [word]: newDetails }));
+          setDefinitionCache(prev => ({ ...prev, [word]: finalDetails }));
         }
 
-        setDetails(newDetails);
-        setLoading(false);
+        // Render in the UI only if this word is still the active one
+        if (active) {
+          setDetails(finalDetails);
+          setLoading(false);
+        }
       } catch (err) {
-        if (!active) return;
-        
-        // Fallback definitions if API fails or offline
-        const fallbackDetails = {
-          ipa: `/${word}/`,
-          definition: `An academic vocabulary word commonly utilized in high-level contexts.`,
-          example: `Developing a strong understanding of "${word}" is highly valued in formal writing tasks.`
-        };
-
-        if (setDefinitionCache) {
-          setDefinitionCache(prev => ({ ...prev, [word]: fallbackDetails }));
+        if (active) {
+          setLoading(false);
+          setError(true);
         }
-
-        setDetails(fallbackDetails);
-        setLoading(false);
-        setError(true);
       }
     };
 
-    fetchDetails();
+    loadDetails();
 
     return () => {
       active = false;
@@ -131,9 +108,15 @@ export default function WordDetails({
     <div className="bg-light-cream backdrop-blur-xl border-2 border-dark-maroon p-6 glow-primary transition-all duration-300">
       {/* Header Info */}
       <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           <h2 className="text-3xl font-extrabold tracking-wide text-darker-maroon">{word}</h2>
           
+          {showTranslation && details.wordId && (
+            <span className="text-xs font-bold text-coral/95 bg-coral/5 px-2 py-0.5 border border-coral/20 rounded uppercase tracking-wide">
+              {details.wordId}
+            </span>
+          )}
+
           {loading ? (
             <Loader2 className="animate-spin text-dark-maroon" size={16} />
           ) : (
@@ -183,19 +166,29 @@ export default function WordDetails({
           <>
             {/* Definition */}
             <div className="flex gap-3 animate-fade-in">
-              <div>
+              <div className="w-full">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-coral mb-1">Definition</h3>
                 <p className="text-dark-maroon leading-relaxed text-xs">{details.definition}</p>
+                {showTranslation && details.definitionId && (
+                  <p className="text-dark-maroon/70 leading-relaxed text-[11px] mt-1.5 italic border-l-2 border-coral/30 pl-2 animate-fade-in">
+                    {details.definitionId}
+                  </p>
+                )}
               </div>
             </div>
 
             {/* Example Sentence */}
             <div className="flex gap-3 animate-fade-in">
-              <div>
+              <div className="w-full">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-coral mb-1">Context Usage</h3>
                 <p className="text-dark-maroon italic leading-relaxed text-xs">
                   "{details.example}"
                 </p>
+                {showTranslation && details.exampleId && (
+                  <p className="text-dark-maroon/70 leading-relaxed text-[11px] mt-1.5 not-italic border-l-2 border-coral/30 pl-2 animate-fade-in">
+                    "{details.exampleId}"
+                  </p>
+                )}
               </div>
             </div>
           </>

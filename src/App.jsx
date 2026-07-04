@@ -17,6 +17,7 @@ export default function App() {
   const [soundEnabled, setSoundEnabled] = useState(true);
   const [soundProfile, setSoundProfile] = useState('classic'); // 'classic' | 'clicky' | 'bubble'
   const [autoPlayAudio, setAutoPlayAudio] = useState(false);
+  const [showTranslation, setShowTranslation] = useState(true);
 
   // Runtime states
   const [activeWords, setActiveWords] = useState([]);
@@ -31,6 +32,10 @@ export default function App() {
     const scores = localStorage.getItem('ielts_typing_bests');
     if (scores) {
       setPersonalBests(JSON.parse(scores));
+    }
+    const savedTranslation = localStorage.getItem('ielts_show_translation');
+    if (savedTranslation !== null) {
+      setShowTranslation(savedTranslation === 'true');
     }
     // Set initial SoundManager state
     SoundManager.toggle(soundEnabled);
@@ -84,7 +89,7 @@ export default function App() {
       wpm: results.wpm,
       accuracy: results.accuracy,
       band: isPracticingMissed ? 'Review Mode' : selectedBand,
-      duration: duration,
+      duration: duration === 'zen' ? 'Zen' : `${duration}s`,
       date: new Date().toLocaleDateString()
     };
 
@@ -99,6 +104,11 @@ export default function App() {
   const clearHistory = () => {
     setPersonalBests([]);
     localStorage.removeItem('ielts_typing_bests');
+  };
+
+  const handleToggleTranslation = (val) => {
+    setShowTranslation(val);
+    localStorage.setItem('ielts_show_translation', String(val));
   };
 
   return (
@@ -186,7 +196,7 @@ export default function App() {
               {/* Duration selector */}
               <div>
                 <span className="text-xs font-semibold text-dark-maroon block mb-2">Test Duration</span>
-                <div className="grid grid-cols-4 gap-2">
+                <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
                   {[15, 30, 60, 90].map((sec) => (
                     <button
                       key={sec}
@@ -199,11 +209,20 @@ export default function App() {
                       {sec}s
                     </button>
                   ))}
+                  <button
+                    onClick={() => setDuration('zen')}
+                    className={`col-span-2 sm:col-span-1 px-3 py-2.5 rounded-xl border text-xs font-bold transition-all active:scale-95 cursor-pointer ${duration === 'zen'
+                        ? 'bg-coral border-dark-maroon text-light-cream shadow-md shadow-coral/20'
+                        : 'bg-soft-pink border-dark-maroon text-darker-maroon hover:text-darker-maroon hover:border-dark-maroon'
+                      }`}
+                  >
+                    Zen Mode
+                  </button>
                 </div>
               </div>
 
               {/* Sound & Speech Panel */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2 border-t border-dark-maroon">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2 border-t border-dark-maroon">
                 {/* Keyboard Profile */}
                 <div>
                   <span className="text-xs font-semibold text-dark-maroon block mb-1.5">Keyboard Click Sound</span>
@@ -222,7 +241,7 @@ export default function App() {
                 {/* Pronounce Helper */}
                 <div className="flex flex-col justify-end">
                   <span className="text-xs font-semibold text-dark-maroon block mb-1.5">Pronunciation Helper</span>
-                  <label className="flex items-center gap-2.5 p-2.5 rounded-xl cursor-pointer select-none">
+                  <label className="flex items-center gap-2.5 p-2.5 rounded-xl cursor-pointer select-none bg-sky-blue/30 border border-dark-maroon/20 hover:bg-sky-blue/50 transition-all duration-150">
                     <input
                       type="checkbox"
                       checked={autoPlayAudio}
@@ -230,6 +249,20 @@ export default function App() {
                       className="accent-dark-mustard h-4 w-4 rounded border-dark-maroon"
                     />
                     <span className="text-xs text-darker-maroon">Auto Pronounce words</span>
+                  </label>
+                </div>
+
+                {/* Translation Helper */}
+                <div className="flex flex-col justify-end">
+                  <span className="text-xs font-semibold text-dark-maroon block mb-1.5">Kamus Helper (Indonesian)</span>
+                  <label className="flex items-center gap-2.5 p-2.5 rounded-xl cursor-pointer select-none bg-sky-blue/30 border border-dark-maroon/20 hover:bg-sky-blue/50 transition-all duration-150">
+                    <input
+                      type="checkbox"
+                      checked={showTranslation}
+                      onChange={(e) => handleToggleTranslation(e.target.checked)}
+                      className="accent-dark-mustard h-4 w-4 rounded border-dark-maroon"
+                    />
+                    <span className="text-xs text-darker-maroon">Show Translation</span>
                   </label>
                 </div>
               </div>
@@ -299,6 +332,7 @@ export default function App() {
             soundProfile={soundProfile}
             soundEnabled={soundEnabled}
             autoPlayAudio={autoPlayAudio}
+            showTranslation={showTranslation}
             definitionCache={definitionCache}
             setDefinitionCache={setDefinitionCache}
             onSessionComplete={handleSessionComplete}
@@ -311,6 +345,7 @@ export default function App() {
             onRetry={startSession}
             onPracticeMissed={startPracticeMissedSession}
             onBackHome={() => setScreen('home')}
+            showTranslation={showTranslation}
             definitionCache={definitionCache}
           />
         )}
